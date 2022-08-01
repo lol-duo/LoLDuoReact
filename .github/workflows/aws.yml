@@ -1,0 +1,14 @@
+name: React build
+on: 
+  push:
+    branches: [ "master" ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Dependencies    
+        run: npm install
+
+      - name: Build 
+        run: npm run build
