@@ -34,7 +34,7 @@ function App() {
               <input onClick={setRf} ref={nowRef} value={value} onChange={onChange}></input>         
               <ul>
                   {championList && championList.map(c => {
-                      return <li><img src={c.imgUrl} onClick={() => setValue(c.name)}></img></li>
+                      return <li><img src={c.imgUrl} onClick={() => setValue(c.name)} alt=""></img></li>
                   })}
               </ul>   
             </div>     
