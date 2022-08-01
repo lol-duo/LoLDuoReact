@@ -3,6 +3,9 @@ on:
   push:
     branches: [ "master" ]
     
+env:
+  S3_BUCKET_NAME: lol-duo-version
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,6 +17,10 @@ jobs:
 
       - name: Build 
         run: npm run build
+        
+      - name: Copy appspec.yml
+        run: cp appspec.yml ./build
+        
       - name: Make zip file
         run : zip -r ./lolduo_client.zip ./build
         
