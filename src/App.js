@@ -1,7 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import React, { useCallback, useRef} from "react";
 import './App.css';
-import ChampionSelected from './ChampionSelected';
 
 
 async function api() {
