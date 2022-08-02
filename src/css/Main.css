@@ -1,0 +1,19 @@
+.Main-content {
+    display: flex;
+}
+
+.Sub-content {
+    flex: auto;
+}
+
+.ChampionList{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Champion{
+    position: relative;
+    display: block;
+    flex: auto;
+}
+

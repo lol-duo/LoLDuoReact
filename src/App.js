@@ -1,44 +1,25 @@
-import { useRef, useState } from 'react';
-import './App.css';
+import './css/App.css';
+import './css/Main.css';
+import championListData from './static/championList.json'
 
-
-async function api() {
-  return await fetch("http://52.78.55.104:80/getChampionList").then((res) => res.json());
-}
-const handleMouseDown = (e) =>{
-  e.preventDefault();
-}
-let championList;
 function App() {
-  api().then((data) => championList = data);
-  const [isFocus, setIsFocus] = useState(false);
-  const [value, setValue] = useState("");
-  const onFocus = () => setIsFocus(true);
-  const onBlur = () => setIsFocus(false);
-  const onChange = (e) =>{
-    setValue(e.target.value);
-  }
-  const nowRef = useRef();
-  const setRf = () =>{    
-    nowRef.current.focus();
-  }
-  
+  const championListli = championListData.map(c => {
+    return (
+      <li className='Champion'>
+        <img src={c.imgUrl} alt={c.imgUrl} width='46px' height='46px'></img>
+      </li>
+    );
+  })
+
+
   return (
     <div className="App">
       <header  className="App-header">
-          <button className='dropbtn' onClick={onFocus}>
-            Dropdown
-          </button>
-          {isFocus && (            
-            <div onMouseDown={handleMouseDown} onBlur={onBlur}>
-              <input onClick={setRf} ref={nowRef} value={value} onChange={onChange}></input>         
-              <ul>
-                  {championList && championList.map(c => {
-                      return <li><img src={c.imgUrl} onClick={() => setValue(c.name)} alt=""></img></li>
-                  })}
-              </ul>   
-            </div>     
-          )}                   
+         <div className='Main-content'>
+            <div className='Sub-content ChampionList'>
+              {championListli}
+            </div>
+          </div>          
       </header>
     </div>
   );
