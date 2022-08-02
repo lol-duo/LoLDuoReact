@@ -3,7 +3,7 @@ import './App.css';
 
 
 async function api() {
-  return await fetch("/getChampionList").then((res) => res.json());
+  return await fetch("http://52.78.55.104:80/getChampionList").then((res) => res.json());
 }
 const handleMouseDown = (e) =>{
   e.preventDefault();
