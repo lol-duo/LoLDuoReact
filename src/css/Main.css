@@ -2,13 +2,15 @@
     display: flex;
 }
 
-.Sub-content {
+.Sub-content-ChampionList {
     flex: auto;
+    width: 300px;
 }
 
 .ChampionList{
     display: flex;
-    flex-wrap: wrap;
+    flex: auto;
+    flex-wrap: wrap;    
 }
 
 .Champion{
