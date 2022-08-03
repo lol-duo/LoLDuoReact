@@ -18,14 +18,13 @@ const lineListImg =
 
 
 function App() {
-  const [userSelected, setUserSelected] = useState([{"id" : 0, "line" : "ALL"}]);
+  const [userSelected, setUserSelected] = useState([{"id" : 0, "line" : "ALL", "now" : 0}, {"id" : 0, "line" : "ALL", "now" : 1}]);
   const [championName, setChampionName] = useState('');
   const [selected , setSelected] = useState(0);
   const ChosungSearch = require('hangul-chosung-search-js');
-/*
   const onChangeSelected = (e) => {
     setSelected(e);
-  }*/
+  }
   //유저가 클릭한 곳에 champion id 넣기.
   const onChangeUserSelected = (e) => {
     userSelected[selected].id = e;
@@ -48,7 +47,7 @@ function App() {
   const userSelectedSpace = userSelected.map(s => {
     return(
       <li className='UserSelected'>
-        <img src={championListData.find(champion => champion.id === s.id).imgUrl} alt={championListData.find(champion => champion.id === s.id).imgUrl}></img>
+        <img src={championListData.find(champion => champion.id === s.id).imgUrl} onClick={() => onChangeSelected(s.now)} alt={championListData.find(champion => champion.id === s.id).imgUrl}></img>
         <img src={lineDate[s.line]} alt={lineDate[s.line]}></img>
       </li>
     )
