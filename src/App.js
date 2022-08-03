@@ -3,8 +3,6 @@ import './css/App.css';
 import './css/Main.css';
 import championListData from './static/championList.json'
 import lineDate from './static/line.json'
-import etcDate from './static/etc.json'
-
  
 
 const lineListImg =
