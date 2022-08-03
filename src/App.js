@@ -48,8 +48,8 @@ function App() {
   const userSelectedSpace = userSelected.map(s => {
     return(
       <li className='UserSelected'>
-        <img src={championListData.find(champion => champion.id === s.id).imgUrl}></img>
-        <img src={lineDate[s.line]}></img>
+        <img src={championListData.find(champion => champion.id === s.id).imgUrl} alt={championListData.find(champion => champion.id === s.id).imgUrl}></img>
+        <img src={lineDate[s.line]} alt={lineDate[s.line]}></img>
       </li>
     )
   })
