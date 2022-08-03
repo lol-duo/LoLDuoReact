@@ -22,10 +22,10 @@ function App() {
   const [championName, setChampionName] = useState('');
   const [selected , setSelected] = useState(0);
   const ChosungSearch = require('hangul-chosung-search-js');
-
+/*
   const onChangeSelected = (e) => {
     setSelected(e);
-  }
+  }*/
   //유저가 클릭한 곳에 champion id 넣기.
   const onChangeUserSelected = (e) => {
     userSelected[selected].id = e;
