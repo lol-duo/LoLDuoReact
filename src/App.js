@@ -46,9 +46,9 @@ function App() {
 
   const userSelectedSpace = userSelected.map(s => {
     return(
-      <li className='UserSelected'>
-        <img src={championListData.find(champion => champion.id === s.id).imgUrl} onClick={() => onChangeSelected(s.now)} alt={championListData.find(champion => champion.id === s.id).imgUrl}></img>
-        <img src={lineDate[s.line]} alt={lineDate[s.line]}></img>
+      <li className='Champion'>
+        <img src={championListData.find(champion => champion.id === s.id).imgUrl}  width='46px' height='46px' onClick={() => onChangeSelected(s.now)} alt={championListData.find(champion => champion.id === s.id).imgUrl}></img>
+        <img width='46px' height='46px' src={lineDate[s.line]} alt={lineDate[s.line]}></img>
       </li>
     )
   })
@@ -60,7 +60,7 @@ function App() {
         <div>
          <div className='Main-content'>
             <div className='Sub-content-ChampionList'>
-              <div>
+              <div className="ChampionList">
                 {userSelectedSpace}
               </div>
               <div>
