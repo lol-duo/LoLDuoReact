@@ -3,6 +3,7 @@ import './css/App.css';
 import './css/Main.css';
 import championListData from './static/championList.json'
 import lineDate from './static/line.json'
+import etcDate from './static/etc.json'
 
  
 
@@ -18,7 +19,7 @@ const lineListImg =
 
 
 function App() {
-  const [userSelected, setUserSelected] = useState([{"id" : 0, "line" : "ALL", "now" : 0}, {"id" : 0, "line" : "ALL", "now" : 1}]);
+  const [userSelected, setUserSelected] = useState([{"id" : 0, "line" : "ALL", "now" : 0}]);
   const [championName, setChampionName] = useState('');
   const [selected , setSelected] = useState(0);
   const ChosungSearch = require('hangul-chosung-search-js');
@@ -53,6 +54,10 @@ function App() {
     )
   })
   
+  const addSelectedSpace = () => {
+    setUserSelected(Object.assign([{}], [...userSelected, {"id" : 0, "line" : "ALL", "now" : userSelected.length}]));
+  }
+  
   
   return (
     <div className="App">
@@ -62,6 +67,7 @@ function App() {
             <div className='Sub-content-ChampionList'>
               <div className="ChampionList">
                 {userSelectedSpace}
+                <button className='btn plusBtn' onClick={addSelectedSpace}></button>                
               </div>
               <div>
                 <input id="filterChampion" type="text" placeholder="챔피언 검색 (가렌, ㄱㄹ, ...)" value={championName} onChange={onChangeName}/>

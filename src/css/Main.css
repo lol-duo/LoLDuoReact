@@ -19,3 +19,30 @@
     flex: auto;
 }
 
+.plusBtn{
+    background-image: url("https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/StatMods/StatModsMagicResIcon.MagicResist_Fix.png");
+}
+
+.btn {
+    line-height: 20px;
+    height: 40px;
+    color: white;
+    background-color: white;
+    border-width: 0px 0px 0px 0px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-basis: 14.2857%;
+    border-radius: 0px;
+    padding: 8px;
+    font-size: 0px;
+    background-size: 24px;
+    transition: background 0.2s ease-in-out
+    
+}
+
+.btn:hover {
+    background-color: dodgerblue;
+    color: dodgerblue;
+}
