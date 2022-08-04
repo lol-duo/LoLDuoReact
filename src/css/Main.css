@@ -4,19 +4,19 @@
 
 .Sub-content-ChampionList {
     flex: auto;
-    width: 300px;
+    width: 320px;
 }
 
 .ChampionList{
     display: flex;
     flex: auto;
     flex-wrap: wrap;    
+    justify-content: center;
 }
 
 .Champion{
     position: relative;
     display: block;
-    flex: auto;
 }
 
 .plusBtn{
@@ -39,7 +39,6 @@
     font-size: 0px;
     background-size: 24px;
     transition: background 0.2s ease-in-out
-    
 }
 
 .btn:hover {
@@ -47,10 +46,17 @@
     color: dodgerblue;
 }
 
-.Del {
-    position:absolute;
-    top: 0;
-    right: 0;
-    height: 15px;
-    width: 15px;
+.SelectedList {
+    margin: 5px 5px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    height: 40px;
+    width: 90px;
+    border-radius: 2px;
+    text-align: left;
+    border-width: 1px;
+    border-style: solid;
+    background: white;
 }
