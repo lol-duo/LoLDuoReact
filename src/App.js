@@ -74,24 +74,27 @@ function App() {
         <div>
          <div className='Main-content'>
             <div className='Sub-content-ChampionList'>
-            <nav>
-              <button type="button" onClick={() => newUserSelected(1)}>솔로</button>
-              <button type="button" onClick={() => newUserSelected(2)}>듀오</button>
-              <button type="button" onClick={() => newUserSelected(3)}>트리오</button>
-              <button type="button" onClick={() => newUserSelected(5)}>전체</button>
-            </nav>
-              <div className="ChampionList">
-                {userSelectedSpace}           
-              </div>
-              <div>
-                <input id="filterChampion" type="text" placeholder="챔피언 검색 (가렌, ㄱㄹ, ...)" value={championName} onChange={onChangeName}/>
-              </div>
-                {lineListImg}
-              <div className="ChampionList">
-                {championListli}
-              </div>
+              <nav>
+                <button type="button" onClick={() => newUserSelected(1)}>솔로</button>
+                <button type="button" onClick={() => newUserSelected(2)}>듀오</button>
+                <button type="button" onClick={() => newUserSelected(3)}>트리오</button>
+                <button type="button" onClick={() => newUserSelected(5)}>전체</button>
+              </nav>
+                <div className="ChampionList">
+                  {userSelectedSpace}           
+                </div>
+                <div>
+                  <input id="filterChampion" type="text" placeholder="챔피언 검색 (가렌, ㄱㄹ, ...)" value={championName} onChange={onChangeName}/>
+                </div>
+                  {lineListImg}
+                <div className="ChampionList">
+                  {championListli}
+                </div>
             </div>            
             <div className='Sub-content WinRateList'>
+              <li>
+                챔피언 리스트
+              </li>
             </div>
           </div>  
         </div>        
