@@ -59,7 +59,7 @@ function App() {
 
   const userSelectedSpace = userSelected.map(s => {
     return(
-      <li className='Champion SelectedList' onClick={() => setSelected(s.now)}>
+      <li className={s.now === selected ? 'Champion SelectedList Selected' : 'Champion SelectedList'} onClick={() => setSelected(s.now)}>
           <img src={championListData.find(champion => champion.id === s.id).imgUrl}  width='46px' height='46px'  alt={championListData.find(champion => champion.id === s.id).imgUrl}></img>
           <img width='46px' height='46px' src={lineDate[s.line]} alt={lineDate[s.line]}></img>
       </li>
