@@ -21,9 +21,16 @@ function App() {
   const [championName, setChampionName] = useState('');
   const [selected , setSelected] = useState(0);
   const ChosungSearch = require('hangul-chosung-search-js');
-  const onChangeSelected = (e) => {
-    setSelected(e);
+  
+
+  const newUserSelected = (e) => {
+    while(e > userSelected.length)
+      userSelected.push({"id" : 0, "line" : "ALL", "now" : userSelected.length});
+    userSelected.length = e;
+    setUserSelected(Object.assign([{}], userSelected));
+    setSelected(0);
   }
+
   //유저가 클릭한 곳에 champion id 넣기.
   const onChangeUserSelected = (e) => {
     userSelected[selected].id = e;
@@ -46,15 +53,12 @@ function App() {
   const userSelectedSpace = userSelected.map(s => {
     return(
       <li className='Champion'>
-        <img src={championListData.find(champion => champion.id === s.id).imgUrl}  width='46px' height='46px' onClick={() => onChangeSelected(s.now)} alt={championListData.find(champion => champion.id === s.id).imgUrl}></img>
-        <img width='46px' height='46px' src={lineDate[s.line]} alt={lineDate[s.line]}></img>
+          <img src={championListData.find(champion => champion.id === s.id).imgUrl}  width='46px' height='46px' onClick={() => setSelected(s.now)} alt={championListData.find(champion => champion.id === s.id).imgUrl}></img>
+          <img width='46px' height='46px' src={lineDate[s.line]} alt={lineDate[s.line]}></img>
       </li>
     )
   })
   
-  const addSelectedSpace = () => {
-    setUserSelected(Object.assign([{}], [...userSelected, {"id" : 0, "line" : "ALL", "now" : userSelected.length}]));
-  }
   
   
   return (
@@ -63,9 +67,14 @@ function App() {
         <div>
          <div className='Main-content'>
             <div className='Sub-content-ChampionList'>
+            <nav>
+              <button type="button" onClick={() => newUserSelected(1)}>솔로</button>
+              <button type="button" onClick={() => newUserSelected(2)}>듀오</button>
+              <button type="button" onClick={() => newUserSelected(3)}>트리오</button>
+              <button type="button" onClick={() => newUserSelected(5)}>전체</button>
+            </nav>
               <div className="ChampionList">
-                {userSelectedSpace}
-                <button className='btn plusBtn' onClick={addSelectedSpace}></button>                
+                {userSelectedSpace}           
               </div>
               <div>
                 <input id="filterChampion" type="text" placeholder="챔피언 검색 (가렌, ㄱㄹ, ...)" value={championName} onChange={onChangeName}/>
