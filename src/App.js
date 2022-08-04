@@ -5,15 +5,7 @@ import championListData from './static/championList.json'
 import lineDate from './static/line.json'
  
 
-const lineListImg =
-  <div>
-    <img src={lineDate.ALL} alt={lineDate.ALL}></img>
-    <img src={lineDate.TOP} alt={lineDate.TOP}></img>
-    <img src={lineDate.JUNGLE} alt={lineDate.JUNGLE}></img>
-    <img src={lineDate.MIDDLE} alt={lineDate.MIDDLE}></img>
-    <img src={lineDate.BOTTOM} alt={lineDate.BOTTOM}></img>
-    <img src={lineDate.UTILITY} alt={lineDate.UTILITY}></img>
-  </div>
+
 
 
 function App() {
@@ -21,6 +13,21 @@ function App() {
   const [championName, setChampionName] = useState('');
   const [selected , setSelected] = useState(0);
   const ChosungSearch = require('hangul-chosung-search-js');
+
+  const onChangeUserSelectedLine = (e) => {
+    userSelected[selected].line = e;
+    setUserSelected(Object.assign([{}], userSelected));
+  }
+
+  const lineListImg =
+  <div>
+    <img src={lineDate.ALL} alt={lineDate.ALL} onClick={() => onChangeUserSelectedLine("ALL")}></img>
+    <img src={lineDate.TOP} alt={lineDate.TOP} onClick={() => onChangeUserSelectedLine("TOP")}></img>
+    <img src={lineDate.JUNGLE} alt={lineDate.JUNGLE} onClick={() => onChangeUserSelectedLine("JUNGLE")}></img>
+    <img src={lineDate.MIDDLE} alt={lineDate.MIDDLE} onClick={() => onChangeUserSelectedLine("MIDDLE")}></img>
+    <img src={lineDate.BOTTOM} alt={lineDate.BOTTOM} onClick={() => onChangeUserSelectedLine("BOTTOM")}></img>
+    <img src={lineDate.UTILITY} alt={lineDate.UTILITY} onClick={() => onChangeUserSelectedLine("UTILITY")}></img>
+  </div>
   
 
   const newUserSelected = (e) => {
@@ -52,8 +59,8 @@ function App() {
 
   const userSelectedSpace = userSelected.map(s => {
     return(
-      <li className='Champion SelectedList'>
-          <img src={championListData.find(champion => champion.id === s.id).imgUrl}  width='46px' height='46px' onClick={() => setSelected(s.now)} alt={championListData.find(champion => champion.id === s.id).imgUrl}></img>
+      <li className='Champion SelectedList' onClick={() => setSelected(s.now)}>
+          <img src={championListData.find(champion => champion.id === s.id).imgUrl}  width='46px' height='46px'  alt={championListData.find(champion => champion.id === s.id).imgUrl}></img>
           <img width='46px' height='46px' src={lineDate[s.line]} alt={lineDate[s.line]}></img>
       </li>
     )
