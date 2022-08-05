@@ -95,6 +95,9 @@ function App() {
               <li>
                 챔피언 리스트
               </li>
+              <li>
+                챔피언 리스트2
+              </li>
             </div>
           </div>  
         </div>        
