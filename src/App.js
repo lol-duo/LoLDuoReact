@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './css/App.css';
 import './css/Main.css';
 import championListData from './static/championList.json'
 import lineDate from './static/line.json'
- 
+import axios from 'axios';
 
 
 
@@ -13,11 +13,49 @@ function App() {
   const [championName, setChampionName] = useState('');
   const [selected , setSelected] = useState(0);
   const ChosungSearch = require('hangul-chosung-search-js');
+  const [championListResult , setChampionListResult] = useState([
+    {
+      "clientChampionInfoDTOList": [
+        {
+          "championName": "올라프",
+          "imgUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/champion/Olaf.png",
+          "position": "TOP",
+          "positionUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/line/TOP.png"
+        }
+      ],
+      "winRate": "42.31%"
+    }
+  ]);
+
+  const setChampionListResultByApi = async () => {
+    const apiData = await axios.post(
+      '/getInfo',
+      userSelected.map(s => {
+        return(
+          {
+            "championId" : s.id,
+            "position" : s.line
+          }
+        )
+      })
+      ,{headers:{ 
+        'Content-type': 'application/json', 
+        'Accept': 'application/json' 
+          }}
+    )
+    setChampionListResult(apiData.data)
+    console.log(apiData.data)
+  }
+
+  useEffect(() => {setChampionListResultByApi()},[]);
 
   const onChangeUserSelectedLine = (e) => {
     userSelected[selected].line = e;
     setUserSelected(Object.assign([{}], userSelected));
+    setChampionListResultByApi();
   }
+
+
 
   const lineListImg =
   <div>
@@ -36,12 +74,37 @@ function App() {
     userSelected.length = e;
     setUserSelected(Object.assign([{}], userSelected));
     setSelected(0);
+    setChampionListResultByApi();
   }
+
+  const championListResultShow = () =>{
+      let now = 1;
+      return (
+        championListResult.map(s =>{
+        return(
+          <tr>
+            <td>{now++}</td>
+            <td>{s.clientChampionInfoDTOList.map(c => {
+            return(
+              <>
+              <img src={c.imgUrl} alt={c.imgUrl}></img>
+              <img src={c.positionUrl} alt = {c.positionUrl}></img>
+              </>
+            )
+          })}</td>
+            <td>{s.winRate}</td>
+          </tr>
+        )
+      })
+    )
+  }
+
 
   //유저가 클릭한 곳에 champion id 넣기.
   const onChangeUserSelected = (e) => {
     userSelected[selected].id = e;
     setUserSelected(Object.assign([{}], userSelected));
+    setChampionListResultByApi();
   }
 
   const onChangeName = (e) =>{
@@ -92,12 +155,23 @@ function App() {
                 </div>
             </div>            
             <div className='Sub-content WinRateList'>
-              <li>
-                챔피언 리스트
-              </li>
-              <li>
-                챔피언 리스트2
-              </li>
+              <table>
+                <colgroup>
+                  <col width="70"/>
+                  <col width="*" />
+                  <col width="64"/>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th align="left" scope="col">순위</th>
+                    <th align="left" scope="col">챔피언</th>
+                    <th scope="col" order="-1">승률</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {championListResultShow()}
+                </tbody>
+              </table>
             </div>
           </div>  
         </div>        
