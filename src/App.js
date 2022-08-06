@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './css/App.css';
 import './css/Main.css';
 import championListData from './static/championList.json'
@@ -27,7 +27,7 @@ function App() {
     }
   ]);
 
-  const setChampionListResultByApi = async () => {
+  const setChampionListResultByApi = useCallback( async () => {
     const apiData = await axios.post(
       'http://52.78.55.104:80/getInfo',
       userSelected.map(s => {
@@ -46,8 +46,9 @@ function App() {
     setChampionListResult(apiData.data)
     console.log(apiData.data)
   }
+  ,[userSelected])
 
-  useEffect(() => {setChampionListResultByApi()});
+  useEffect(() => {setChampionListResultByApi()},[setChampionListResultByApi]);
 
   const onChangeUserSelectedLine = (e) => {
     userSelected[selected].line = e;
