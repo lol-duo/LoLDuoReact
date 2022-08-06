@@ -47,7 +47,7 @@ function App() {
     console.log(apiData.data)
   }
 
-  useEffect(() => {setChampionListResultByApi()},[championListResult]);
+  useEffect(() => {setChampionListResultByApi()});
 
   const onChangeUserSelectedLine = (e) => {
     userSelected[selected].line = e;
