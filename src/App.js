@@ -29,7 +29,7 @@ function App() {
 
   const setChampionListResultByApi = async () => {
     const apiData = await axios.post(
-      '/getInfo',
+      'http://52.78.55.104:80/getInfo',
       userSelected.map(s => {
         return(
           {
