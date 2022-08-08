@@ -29,7 +29,7 @@ function App() {
 
   const setChampionListResultByApi = useCallback( async () => {
     const apiData = await axios.post(
-      'https://52.78.55.104/getInfo',
+      'https://api.lolduo.net/getInfo',
       userSelected.map(s => {
         return(
           {
