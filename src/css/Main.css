@@ -64,3 +64,14 @@
 .Selected {
     border-color: blue;
 }
+.Head-content{
+    height: 200px;
+}
+
+.Main-Logo {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+}

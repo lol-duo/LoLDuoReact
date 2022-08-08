@@ -29,7 +29,7 @@ function App() {
 
   const setChampionListResultByApi = useCallback( async () => {
     const apiData = await axios.post(
-      'http://52.78.55.104:80/getInfo',
+      'http://10.1.1.16/getInfo',
       userSelected.map(s => {
         return(
           {
@@ -136,6 +136,9 @@ function App() {
     <div className="App">
       <header  className="App-header">
         <div>
+         <div className='Head-content'>
+          <div className='Main-Logo'>LOLDUO</div>
+         </div>
          <div className='Main-content'>
             <div className='Sub-content-ChampionList'>
               <nav>
