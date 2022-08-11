@@ -15,7 +15,7 @@ function App() {
   const ChosungSearch = require('hangul-chosung-search-js');
   const [championListResult , setChampionListResult] = useState([
     {
-      "clientChampionInfoDTOList": [
+      "championInfoList": [
         {
           "championName": "올라프",
           "imgUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/champion/Olaf.png",
@@ -23,7 +23,8 @@ function App() {
           "positionUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/line/TOP.png"
         }
       ],
-      "winRate": "42.31%"
+      "winRate": "42.31%",
+      "allCount" : "0 게임"
     }
   ]);
 
@@ -85,7 +86,7 @@ function App() {
         return(
           <tr>
             <td>{now++}</td>
-            <td>{s.clientChampionInfoDTOList.map(c => {
+            <td>{s.championInfoList.map(c => {
             return(
               <>
               <img src={c.imgUrl} alt={c.imgUrl}></img>
@@ -94,6 +95,7 @@ function App() {
             )
           })}</td>
             <td>{s.winRate}</td>
+            <td>{s.allCount}</td>
           </tr>
         )
       })
@@ -164,12 +166,14 @@ function App() {
                   <col width="70"/>
                   <col width="*" />
                   <col width="64"/>
+                  <col width="*"/>
                 </colgroup>
                 <thead>
                   <tr>
                     <th align="left" scope="col">순위</th>
                     <th align="left" scope="col">챔피언</th>
                     <th scope="col" order="-1">승률</th>
+                    <th align='left'>경기 수</th>
                   </tr>
                 </thead>
                 <tbody>
