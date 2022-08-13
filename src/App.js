@@ -135,56 +135,50 @@ function App() {
   
   
   return (
-    <div className="App">
-      <header  className="App-header">
-        <div>
-         <div className='Head-content'>
-          <div className='Main-Logo'>LOLDUO</div>
-         </div>
-         <div className='Main-content'>
-            <div className='Sub-content-ChampionList'>
-              <nav>
-                <button type="button" onClick={() => newUserSelected(1)}>솔로</button>
-                <button type="button" onClick={() => newUserSelected(2)}>듀오</button>
-                <button type="button" onClick={() => newUserSelected(3)}>트리오</button>
-                <button type="button" onClick={() => newUserSelected(5)}>전체</button>
-              </nav>
-                <div className="ChampionList">
-                  {userSelectedSpace}           
-                </div>
-                <div>
-                  <input id="filterChampion" type="text" placeholder="챔피언 검색 (가렌, ㄱㄹ, ...)" value={championName} onChange={onChangeName}/>
-                </div>
-                  {lineListImg}
-                <div className="ChampionList">
-                  {championListli}
-                </div>
-            </div>            
-            <div className='Sub-content WinRateList'>
-              <table>
-                <colgroup>
-                  <col width="70"/>
-                  <col width="*" />
-                  <col width="64"/>
-                  <col width="*"/>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th align="left" scope="col">순위</th>
-                    <th align="left" scope="col">챔피언</th>
-                    <th scope="col" order="-1">승률</th>
-                    <th align='left'>경기 수</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {championListResultShow()}
-                </tbody>
-              </table>
-            </div>
-          </div>  
-        </div>        
-      </header>
-    </div>
+    <div className="App">      
+        <div className='Main-content'>
+          <div className='Sub-content-ChampionList'>
+            <nav>
+              <button type="button" onClick={() => newUserSelected(1)}>솔로</button>
+              <button type="button" onClick={() => newUserSelected(2)}>듀오</button>
+              <button type="button" onClick={() => newUserSelected(3)}>트리오</button>
+              <button type="button" onClick={() => newUserSelected(5)}>전체</button>
+            </nav>
+              <div className="ChampionList">
+                {userSelectedSpace}           
+              </div>
+              <div>
+                <input id="filterChampion" type="text" placeholder="챔피언 검색 (가렌, ㄱㄹ, ...)" value={championName} onChange={onChangeName}/>
+              </div>
+                {lineListImg}
+              <div className="ChampionList">
+                {championListli}
+              </div>
+          </div>            
+          <div className='Sub-content WinRateList'>
+            <table>
+              <colgroup>
+                <col width="70"/>
+                <col width="*" />
+                <col width="64"/>
+                <col width="*"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th align="left" scope="col">순위</th>
+                  <th align="left" scope="col">챔피언</th>
+                  <th scope="col" order="-1">승률</th>
+                  <th align='left'>경기 수</th>
+                </tr>
+              </thead>
+              <tbody>
+                {championListResultShow()}
+              </tbody>
+            </table>
+          </div>
+        </div>  
+      </div>        
+     
   );
 }
 
