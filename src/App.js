@@ -1,14 +1,19 @@
 import { useCallback, useEffect, useState } from 'react';
 import './css/App.css';
-import './css/Main.css';
+import style from './css/Main.module.css';
 import championListData from './static/championList.json'
 import lineDate from './static/line.json'
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 
 
 
 function App() {
+  const navigate = useNavigate();
+  const goToDetail = (s) => {
+    navigate("/detail", { state : {id : s.championInfoList }});
+  };
   const [userSelected, setUserSelected] = useState([{"id" : 0, "line" : "ALL", "now" : 0}]);
   const [championName, setChampionName] = useState('');
   const [selected , setSelected] = useState(0);
@@ -17,6 +22,7 @@ function App() {
     {
       "championInfoList": [
         {
+          "championId" : 2,
           "championName": "올라프",
           "imgUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/champion/Olaf.png",
           "position": "TOP",
@@ -30,7 +36,7 @@ function App() {
 
   const setChampionListResultByApi = useCallback( async () => {
     const apiData = await axios.post(
-      'https://api.lolduo.net/getInfo',
+      'https://api.lolduo.net:1000/getInfo',
       userSelected.map(s => {
         return(
           {
@@ -84,14 +90,15 @@ function App() {
       return (
         championListResult.map(s =>{
         return(
-          <tr>
+            <tr onClick={() => goToDetail(s)}>
+              
             <td>{now++}</td>
             <td>{s.championInfoList.map(c => {
             return(
-              <>
+              <a href='/detail'>
               <img src={c.imgUrl} alt={c.imgUrl}></img>
               <img src={c.positionUrl} alt = {c.positionUrl}></img>
-              </>
+              </a>
             )
           })}</td>
             <td>{s.winRate}</td>
@@ -117,7 +124,7 @@ function App() {
   const championListli = championListData.map(c => {
     return(
       ChosungSearch.isSearch(championName, c.name) && 
-          <li className='Champion'>
+          <li className={style.Champion}>
             <img src={c.imgUrl} alt={c.imgUrl} width='46px' height='46px' onClick={() => onChangeUserSelected(c.id)}></img>
           </li>
     )
@@ -125,7 +132,7 @@ function App() {
 
   const userSelectedSpace = userSelected.map(s => {
     return(
-      <li className={s.now === selected ? 'Champion SelectedList Selected' : 'Champion SelectedList'} onClick={() => setSelected(s.now)}>
+      <li className={s.now === selected ? `${style.Champion} ${style.SelectedList} ${style.Selected}` : `${style.Champion} ${style.SelectedList}`} onClick={() => setSelected(s.now)}>
           <img src={championListData.find(champion => champion.id === s.id).imgUrl}  width='46px' height='46px'  alt={championListData.find(champion => champion.id === s.id).imgUrl}></img>
           <img width='46px' height='46px' src={lineDate[s.line]} alt={lineDate[s.line]}></img>
       </li>
@@ -136,26 +143,26 @@ function App() {
   
   return (
     <div className="App">      
-        <div className='Main-content'>
-          <div className='Sub-content-ChampionList'>
+        <div className={style.Maincontent}>
+          <div className={style.SubcontentChampionList}>
             <nav>
               <button type="button" onClick={() => newUserSelected(1)}>솔로</button>
               <button type="button" onClick={() => newUserSelected(2)}>듀오</button>
               <button type="button" onClick={() => newUserSelected(3)}>트리오</button>
               <button type="button" onClick={() => newUserSelected(5)}>전체</button>
             </nav>
-              <div className="ChampionList">
+              <div className={style.ChampionList}>
                 {userSelectedSpace}           
               </div>
               <div>
                 <input id="filterChampion" type="text" placeholder="챔피언 검색 (가렌, ㄱㄹ, ...)" value={championName} onChange={onChangeName}/>
               </div>
                 {lineListImg}
-              <div className="ChampionList">
+              <div className={style.ChampionList}>
                 {championListli}
               </div>
           </div>            
-          <div className='Sub-content WinRateList'>
+          <div>
             <table>
               <colgroup>
                 <col width="70"/>

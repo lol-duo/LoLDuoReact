@@ -1,0 +1,22 @@
+.mainChampion {
+    display: flex;
+    flex: auto;
+}
+
+.Champion{
+  
+    position: relative;
+    display: block;
+}
+
+.subImg{
+    float: left;
+    display: block;
+    position: relative;
+    margin: 20px;
+}
+
+.subItem{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import './css/Main.css';
+import style from './css/Main.module.css';
 import './css/App.css';
 import App from './App';
+import Detatil from './Detail';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,11 +14,11 @@ root.render(
       <header  className="App-header">
         
         <div className='Head-content'>
-          <div className='Main-Logo'>LOLDUO</div>
+          <a className={style.MainLogo} href="/">LOLDUO</a>
         </div>
         <Routes>
           <Route path="/" element = {<App />}/>
-          <Route path='/detail' element={<App />}/>
+          <Route path="/detail" element={<Detatil />}/>
         </Routes>               
       </header>
       <footer className='App-header'>

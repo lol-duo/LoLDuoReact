@@ -1,8 +1,8 @@
-.Main-content {
+.Maincontent {
     display: flex;
 }
 
-.Sub-content-ChampionList {
+.SubcontentChampionList {
     flex: auto;
     width: 320px;
 }
@@ -64,11 +64,13 @@
 .Selected {
     border-color: blue;
 }
-.Head-content{
+.Headcontent{
     height: 200px;
 }
 
-.Main-Logo {
+.MainLogo {
+    text-decoration: none;
+    color: white;
     text-align: center;
     position: relative;
     top: 50%;
