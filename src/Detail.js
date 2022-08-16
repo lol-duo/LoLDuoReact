@@ -116,7 +116,7 @@ function Detatil() {
     const setChampionListResultByApi = useCallback( async () => {        
         setChampionListResult(state.id);
         const apiData = await axios.post(
-            'https://api.lolduo.net:1000/championDetail',
+            'https://api.lolduo.net/championDetail',
             championListResult.map(s => {
             return(
                 {

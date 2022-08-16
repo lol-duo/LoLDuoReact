@@ -36,7 +36,7 @@ function App() {
 
   const setChampionListResultByApi = useCallback( async () => {
     const apiData = await axios.post(
-      'https://api.lolduo.net:1000/getInfo',
+      'https://api.lolduo.net/getInfo',
       userSelected.map(s => {
         return(
           {
@@ -63,6 +63,7 @@ function App() {
     setChampionListResultByApi();
   }
 
+  
 
 
   const lineListImg =
