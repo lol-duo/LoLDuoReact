@@ -37,14 +37,18 @@ function App() {
   const setChampionListResultByApi = useCallback( async () => {
     const apiData = await axios.post(
       'https://api.lolduo.net/getInfo',
-      userSelected.map(s => {
-        return(
-          {
-            "championId" : s.id,
-            "position" : s.line
-          }
-        )
-      })
+      {
+        "championInfoDTOList" : userSelected.map(s => {
+          return(
+            {
+              "championId" : s.id,
+              "position" : s.line
+            }
+          )
+        }),
+        "winRateAsc" : null,
+        "gameCountAsc" : true
+    }
       ,{headers:{ 
         'Content-type': 'application/json', 
         'Accept': 'application/json' 
