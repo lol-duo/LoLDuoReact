@@ -114,27 +114,28 @@ function Detatil() {
           }
       ]);
    
-    const setChampionListResultByApi = useCallback( async () => {        
-        setChampionListResult(state.id);
-        const apiData = await axios.post(
-            env.Url + '/championDetail',
-            championListResult.map(s => {
-            return(
-                {
-                "championId" : s.championId,
-                "position" : s.position
-                }
-            )
-            })
-            ,{headers:{ 
-            'Content-type': 'application/json', 
-            'Accept': 'application/json' 
-                }}
-        )
-        setChampionDetailListResult( apiData.data);
-        console.log(apiData.data);
-        }
-        ,[championListResult, state])
+    const setChampionListResultByApi = useCallback( async () => {         
+          setChampionListResult(state.id);
+          const apiData = await axios.post(
+              env.Url + '/championDetail',
+              state.id.map(s => {
+              return(
+                  {
+                  "championId" : s.championId,
+                  "position" : s.position
+                  }
+              )
+              })
+              ,{headers:{ 
+              'Content-type': 'application/json', 
+              'Accept': 'application/json' 
+                  }}
+          )
+          setChampionDetailListResult( apiData.data);
+          console.log(apiData.data);
+          
+          }        
+        ,[state])
 
     useEffect(() => {setChampionListResultByApi()},[setChampionListResultByApi]);
 
