@@ -97,19 +97,18 @@ function App() {
       return (
         championListResult.map(s =>{
         return(
-            <tr onClick={() => goToDetail(s)}>
-              
-            <td>{now++}</td>
-            <td>{s.championInfoList.map(c => {
+            <tr >              
+            <td className={style.table}>{now++}</td>
+            <td className={`${style.ChampionList} ${style.table}`}>{s.championInfoList.map(c => {
             return(
-              <a href='/detail'>
+              <div onClick={() => goToDetail(s)}>
               <img src={c.imgUrl} alt={c.imgUrl}></img>
               <img src={c.positionUrl} alt = {c.positionUrl}></img>
-              </a>
+              </div>
             )
           })}</td>
-            <td>{s.winRate}</td>
-            <td>{s.allCount}</td>
+            <td className={style.table}>{s.winRate}</td>
+            <td className={style.table}>{s.allCount}</td>
           </tr>
         )
       })
@@ -187,20 +186,20 @@ function App() {
           <div>
             <table>
               <colgroup>
-                <col width="70"/>
+                <col width="150"/>
                 <col width="*" />
-                <col width="64"/>
-                <col width="*"/>
+                <col width="200"/>
+                <col width="250"/>
               </colgroup>
               <thead>
                 <tr>
-                  <th align="left" scope="col">순위</th>
-                  <th align="left" scope="col">챔피언</th>
-                  <th scope="col" order="-1" onClick={() => setRate("winRate")}>승률</th>
-                  <th align='left' onClick={() => setRate("countRate")} >경기 수</th>
+                  <th className={style.table}>순위</th>
+                  <th className={style.table}>챔피언</th>
+                  <th className={style.table} onClick={() => setRate("winRate")}>승률</th>
+                  <th className={style.table} onClick={() => setRate("countRate")} >경기 수</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className={style.tbody}>
                 {championListResultShow()}
               </tbody>
             </table>

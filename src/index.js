@@ -13,7 +13,7 @@ root.render(
     <BrowserRouter>
       <header  className="App-header">
         
-        <div className='Head-content'>
+        <div className={style.MainLogoClass}>
           <a className={style.MainLogo} href="/">LOLDUO</a>
         </div>
         <Routes>
