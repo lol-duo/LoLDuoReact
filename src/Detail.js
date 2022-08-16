@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import style from './css/Detail.module.css'
 import axios from 'axios';
 import {useLocation} from 'react-router-dom';
+import env from './static/env.json'
 
 
 function Detatil() {
@@ -116,7 +117,7 @@ function Detatil() {
     const setChampionListResultByApi = useCallback( async () => {        
         setChampionListResult(state.id);
         const apiData = await axios.post(
-            'https://api.lolduo.net/championDetail',
+            env.Url + '/championDetail',
             championListResult.map(s => {
             return(
                 {

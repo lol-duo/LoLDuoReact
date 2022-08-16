@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import './css/App.css';
 import style from './css/Main.module.css';
 import championListData from './static/championList.json'
+import env from './static/env.json'
 import lineDate from './static/line.json'
 import axios from 'axios';
 import { useNavigate } from 'react-router';
@@ -37,7 +38,7 @@ function App() {
 
   const setChampionListResultByApi = useCallback( async () => {
     const apiData = await axios.post(
-      'https://api.lolduo.net/getInfo',
+      env.Url + '/getInfo',
       {
         "championInfoDTOList" : userSelected.map(s => {
           return(
