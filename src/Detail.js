@@ -6,7 +6,7 @@ import {useLocation} from 'react-router-dom';
 
 function Detatil() {
 
-    const location = useLocation();
+    const {state} = useLocation();
     const [championListResult , setChampionListResult] = useState([
         {
           "championInfoList": [
@@ -114,7 +114,7 @@ function Detatil() {
       ]);
    
     const setChampionListResultByApi = useCallback( async () => {        
-        setChampionListResult(location.state.id);
+        setChampionListResult(state.id);
         const apiData = await axios.post(
             'https://api.lolduo.net:1000/championDetail',
             championListResult.map(s => {
@@ -133,7 +133,7 @@ function Detatil() {
         setChampionDetailListResult( apiData.data);
         console.log(apiData.data);
         }
-        ,[championListResult, location.state])
+        ,[championListResult, state])
 
     useEffect(() => {setChampionListResultByApi()},[setChampionListResultByApi]);
 

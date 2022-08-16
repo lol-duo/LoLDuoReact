@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router';
 function App() {
   const navigate = useNavigate();
   const goToDetail = (s) => {
-    navigate("/detail", { state : {id : s.championInfoList }});
+    navigate('/detail', {state : {id : s.championInfoList }});
   };
   const [userSelected, setUserSelected] = useState([{"id" : 0, "line" : "ALL", "now" : 0}]);
   const [championName, setChampionName] = useState('');
