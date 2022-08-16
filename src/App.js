@@ -15,6 +15,7 @@ function App() {
     navigate('/detail', {state : {id : s.championInfoList }});
   };
   const [userSelected, setUserSelected] = useState([{"id" : 0, "line" : "ALL", "now" : 0}]);
+  const [userSelectedRate, setUserSelectedRate] = useState({"winRateAsc" : false, "gameCountAsc": null});
   const [championName, setChampionName] = useState('');
   const [selected , setSelected] = useState(0);
   const ChosungSearch = require('hangul-chosung-search-js');
@@ -46,8 +47,8 @@ function App() {
             }
           )
         }),
-        "winRateAsc" : null,
-        "gameCountAsc" : true
+        "winRateAsc" : userSelectedRate.winRateAsc,
+        "gameCountAsc" : userSelectedRate.gameCountAsc
     }
       ,{headers:{ 
         'Content-type': 'application/json', 
@@ -57,7 +58,7 @@ function App() {
     setChampionListResult(apiData.data)
     console.log(apiData.data)
   }
-  ,[userSelected])
+  ,[userSelected,userSelectedRate])
 
   useEffect(() => {setChampionListResultByApi()},[setChampionListResultByApi]);
 
@@ -143,6 +144,21 @@ function App() {
       </li>
     )
   })
+
+  const setRate = (c) => {
+    if(c === "winRate"){
+      if(userSelectedRate.winRateAsc === null)
+        setUserSelectedRate({"winRateAsc" : false, "gameCountAsc": null});
+      else
+        setUserSelectedRate({"winRateAsc" : !userSelectedRate.winRateAsc, "gameCountAsc": null});
+    }
+    else{
+      if(userSelectedRate.gameCountAsc === null)
+       setUserSelectedRate({"winRateAsc" : null, "gameCountAsc": false});
+      else
+        setUserSelectedRate({"winRateAsc" : null, "gameCountAsc": !userSelectedRate.gameCountAsc});
+    }
+  }
   
   
   
@@ -179,8 +195,8 @@ function App() {
                 <tr>
                   <th align="left" scope="col">순위</th>
                   <th align="left" scope="col">챔피언</th>
-                  <th scope="col" order="-1">승률</th>
-                  <th align='left'>경기 수</th>
+                  <th scope="col" order="-1" onClick={() => setRate("winRate")}>승률</th>
+                  <th align='left' onClick={() => setRate("countRate")} >경기 수</th>
                 </tr>
               </thead>
               <tbody>

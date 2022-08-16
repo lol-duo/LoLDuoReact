@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.footer {
+  font-size: 12px;
+  max-width: 1000px;
+}
