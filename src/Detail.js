@@ -10,7 +10,7 @@ function Detatil() {
     const {state} = useLocation();
     const [championListResult , setChampionListResult] = useState([
         {
-          "championInfoList": [
+          "championInfoResponseList": [
             {
               "championId" : 2,
               "championName": "올라프",
