@@ -22,7 +22,7 @@ function App() {
   const ChosungSearch = require('hangul-chosung-search-js');
   const [championListResult , setChampionListResult] = useState([
     {
-      "championInfoList": [
+      "championInfoResponseList": [
         {
           "championId" : 2,
           "championName": "올라프",
@@ -99,7 +99,7 @@ function App() {
         return(
             <tr >              
             <td className={style.table}>{now++}</td>
-            <td className={`${style.ChampionList} ${style.table}`}>{s.championInfoList.map(c => {
+            <td className={`${style.ChampionList} ${style.table}`}>{s.championInfoResponseList.map(c => {
             return(
               <div onClick={() => goToDetail(s)}>
               <img src={c.imgUrl} alt={c.imgUrl}></img>
@@ -189,7 +189,7 @@ function App() {
                 <col width="150"/>
                 <col width="*" />
                 <col width="200"/>
-                <col width="250"/>
+                <col width="130"/>
               </colgroup>
               <thead>
                 <tr>
