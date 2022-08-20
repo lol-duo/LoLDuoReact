@@ -2,14 +2,13 @@ import { useCallback, useEffect, useState } from 'react';
 import style from './css/Detail.module.css'
 import axios from 'axios';
 import {useLocation} from 'react-router-dom';
-
-
+import env from './static/env.json'
 function Detatil() {
 
     const {state} = useLocation();
     const [championListResult , setChampionListResult] = useState([
         {
-          "championInfoList": [
+          "championInfoResponseList": [
             {
               "championId" : 2,
               "championName": "올라프",
@@ -113,27 +112,28 @@ function Detatil() {
           }
       ]);
    
-    const setChampionListResultByApi = useCallback( async () => {        
-        setChampionListResult(state.id);
-        const apiData = await axios.post(
-            'https://api.lolduo.net/championDetail',
-            championListResult.map(s => {
-            return(
-                {
-                "championId" : s.championId,
-                "position" : s.position
-                }
-            )
-            })
-            ,{headers:{ 
-            'Content-type': 'application/json', 
-            'Accept': 'application/json' 
-                }}
-        )
-        setChampionDetailListResult( apiData.data);
-        console.log(apiData.data);
-        }
-        ,[championListResult, state])
+    const setChampionListResultByApi = useCallback( async () => {         
+          setChampionListResult(state.id);
+          const apiData = await axios.post(
+              env.Url + '/championDetail',
+              state.id.map(s => {
+              return(
+                  {
+                  "championId" : s.championId,
+                  "position" : s.position
+                  }
+              )
+              })
+              ,{headers:{ 
+              'Content-type': 'application/json', 
+              'Accept': 'application/json' 
+                  }}
+          )
+          setChampionDetailListResult( apiData.data);
+          console.log(apiData.data);
+          
+          }        
+        ,[state])
 
     useEffect(() => {setChampionListResultByApi()},[setChampionListResultByApi]);
 
