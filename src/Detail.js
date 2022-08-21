@@ -20,102 +20,103 @@ function Detatil() {
         }
       ]);
     const [championDetailListResult , setChampionDetailListResult] = useState([
-        {
-            "perkInfo": [
+      {
+        "winRate": "54.55%",
+        "allCount": "88 게임",
+        "thisWinRate": "100.00%",
+        "thisAllCount": "1 게임",
+        "infoList": [
+          {
+            "championId": 267,
+            "championPosition": "UTILITY",
+            "championPositionUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/line/UTILITY.png",
+            "championImgUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/champion/Nami.png",
+            "keyStoneListUrl": [
+              "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/8100.png",
+              "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/8112.png",
+              "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/8400.png"
+            ],
+            "keyItemUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/4005.png",
+            "perkList": [
               {
-                "perkList": [
-                  {
-                    "perkUrlList": [
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/7200_Domination.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/Predator/Predator.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/7200_Domination.png"
-                    ]
-                  }
+                "winRate": "1 게임",
+                "mainPerkUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/7200_Domination.png",
+                "keyPerkUrlList": [
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/Electrocute/Electrocute.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/Predator/Predator.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png_disabled.png"
                 ],
-                "allCount": "1 게임",
-                "winRate": "33.33%"
-              },
-              {
-                "perkList": [
-                  {
-                    "perkUrlList": [
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/X.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/X.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/7200_Domination.png"
-                    ]
-                  }
+                "main1UrlList": [
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/CheapShot/CheapShot.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/TasteOfBlood/GreenTerror_TasteOfBlood.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/SuddenImpact/SuddenImpact.png_disabled.png"
                 ],
-                "allCount": "0 게임",
-                "winRate": "0.00%"
+                "main2UrlList": [
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/ZombieWard/ZombieWard.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/GhostPoro/GhostPoro.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/EyeballCollection/EyeballCollection.png_disabled.png"
+                ],
+                "main3UrlList": [
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/TreasureHunter/TreasureHunter.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/IngeniousHunter/IngeniousHunter.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/RelentlessHunter/RelentlessHunter.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Domination/UltimateHunter/UltimateHunter.png_disabled.png"
+                ],
+                "subPerkUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/7204_Resolve.png",
+                "sub1UrlList": [
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Resolve/Demolish/Demolish.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Resolve/FontOfLife/FontOfLife.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Resolve/MirrorShell/MirrorShell.png_disabled.png"
+                ],
+                "sub2UrlList": [
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Resolve/Conditioning/Conditioning.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Resolve/SecondWind/SecondWind.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Resolve/BonePlating/BonePlating.png_disabled.png"
+                ],
+                "sub3UrlList": [
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Resolve/Overgrowth/Overgrowth.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Resolve/Revitalize/Revitalize.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/Styles/Sorcery/Unflinching/Unflinching.png_disabled.png"
+                ],
+                "subsub1UrlList": [
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/StatMods/StatModsAdaptiveForceIcon.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/StatMods/StatModsAttackSpeedIcon.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/StatMods/StatModsCDRScalingIcon.png_disabled.png"
+                ],
+                "subsub2UrlList": [
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/StatMods/StatModsAdaptiveForceIcon.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/StatMods/StatModsArmorIcon.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/StatMods/StatModsMagicResIcon.MagicResist_Fix.png_disabled.png"
+                ],
+                "subsub3UrlList": [
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/StatMods/StatModsHealthScalingIcon.png_disabled.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/StatMods/StatModsArmorIcon.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/StatMods/StatModsMagicResIcon.MagicResist_Fix.png_disabled.png"
+                ],
+                "allCount": "100.00%"
               }
             ],
-            "spellInfo": [
+            "itemList": [],
+            "spellList": [
               {
-                "spellList": [
-                  {
-                    "spellUrlList": [
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/spell/SummonerFlash.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/spell/SummonerDot.png"
-                    ]
-                  }
+                "winRate": "1 게임",
+                "spellUrlList": [
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/spell/SummonerFlash.png",
+                  "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/spell/SummonerDot.png"
                 ],
-                "allCount": "1 게임",
-                "winRate": "33.33%"
-              },
-              {
-                "spellList": [
-                  {
-                    "spellUrlList": [
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/X.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/perk-images/X.png"
-                    ]
-                  }
-                ],
-                "allCount": "0 게임",
-                "winRate": "0.00%"
-              }
-            ],
-            "itemInfo": [
-              {
-                "itemList": [
-                  {
-                    "itemUrlList": [
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/X.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/next.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/X.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/next.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/X.png"
-                    ]
-                  }
-                ],
-                "allCount": "1 게임",
-                "winRate": "33.33%"
-              },
-              {
-                "itemList": [
-                  {
-                    "itemUrlList": [
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/3157.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/next.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/X.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/next.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/X.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/next.png",
-                      "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/item/X.png"
-                    ]
-                  }
-                ],
-                "allCount": "0 게임",
-                "winRate": "0.00%"
+                "allCount": "100.00%"
               }
             ]
           }
+        ]
+      }
       ]);
    
     const setChampionListResultByApi = useCallback( async () => {         
           setChampionListResult(state.id);
           const apiData = await axios.post(
-              env.Url + '/championDetail',
+              env.Url + '/v2/championDetail',
               state.id.map(s => {
               return(
                   {
@@ -149,35 +150,24 @@ function Detatil() {
     
     const setperkInfo = () => {
         return(
-        championDetailListResult.perkInfo && championDetailListResult.perkInfo.map(s =>{
-        return(
+          <div>
             <div>
-                <li className={style.subImg}>
-                    {
-                    s.perkList.map(a => {                    
-                            return(
-                                <li className={style.subImg}>
-                                    {
-                                    a.perkUrlList.map(f => {
-                                        return(
-                                            <img width='46px' height='46px' src={f} alt={f}></img>
-                                        )
-                                    })
-                                }
-                                </li>      
-                            )                    
-                    })
-                }
-                </li>
-                <div className={style.subImg}>
-                    {s.winRate}
-                </div>
-                <div className={style.subImg}>
-                    {s.allCount}
-                </div>
-            </div>
-        )
-    })
+              {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
+                return(
+                  <li>
+                    <div>
+                      <img src={infoList.keyStoneListUrl[0]} alt={infoList.keyStoneListUrl[0]}/>
+                      <img src={infoList.keyStoneListUrl[1]} alt={infoList.keyStoneListUrl[1]}/>
+                      <img src={infoList.keyStoneListUrl[2]} alt={infoList.keyStoneListUrl[2]}/>
+                      <span>{infoList.perkList[0].winRate}</span>
+                      <span>{infoList.perkList[0].allCount}</span>
+                    </div>
+                  </li>
+                )
+              })
+              }    
+          </div>
+         </div>
         )
 }
 
@@ -220,38 +210,16 @@ const setItemInfo = () => {
 
 const setSpellInfo = () => {
     return(
-    championDetailListResult.spellInfo && championDetailListResult.spellInfo.map(s =>{
-
-    return(
-        <div className={style.Champion}>
-            <li className={style.subImg}>
-                {
-                s.spellList.map(a => {
-                    return(
-                        <li className={style.subImg}>
-                        {
-                            a.spellUrlList.map(f => {
-                                return(
-                                    <img width='46px' height='46px' src={f} alt={f}></img>
-                                )
-                            }
-                        
-                        )}
-                        </li>
-                       
-                    )
-                })
-            }
+      <div>
+        {championDetailListResult.spellList && championDetailListResult.spellList.map(spellList => {
+          return(
+            <li>
+              <img src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
+              <img src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
             </li>
-            <div className={style.subImg}>
-                {s.winRate}
-            </div>
-            <div className={style.subImg}>
-                {s.allCount}
-            </div>
-        </div>
-    )
-})
+          )
+        })}
+      </div>
     )
 }
 
