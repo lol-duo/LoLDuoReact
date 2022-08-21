@@ -21,6 +21,6 @@
     flex-direction: column;
 }
 
-.img {
-    filter: grayscale(100%);
+.main{
+    display: flex;
 }

@@ -154,15 +154,21 @@ function Detatil() {
             <div>
               {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
                 return(
-                  <li>
-                    <div>
+                  <ul>
+                    <li>
+                      <img src={infoList.championImgUrl} alt={infoList.championImgUrl}/>
+                      <img src={infoList.championPositionUrl} alt={infoList.championPositionUrl}/>                      
+                    </li>
+                    <li>
                       <img src={infoList.keyStoneListUrl[0]} alt={infoList.keyStoneListUrl[0]}/>
                       <img src={infoList.keyStoneListUrl[1]} alt={infoList.keyStoneListUrl[1]}/>
                       <img src={infoList.keyStoneListUrl[2]} alt={infoList.keyStoneListUrl[2]}/>
-                      <span>{infoList.perkList[0].winRate}</span>
+                    </li>
+                    <li>
+                    <span>{infoList.perkList[0].winRate}</span>
                       <span>{infoList.perkList[0].allCount}</span>
-                    </div>
-                  </li>
+                    </li>
+                  </ul>
                 )
               })
               }    
@@ -173,51 +179,47 @@ function Detatil() {
 
 const setItemInfo = () => {
     return(
-    championDetailListResult.itemInfo && championDetailListResult.itemInfo.map(s =>{
-
-    return(
-        <div className={style.Champion}>
-            <li className={style.subImg}>
-                {
-                s.itemList.map(a => {
-                    return(
-                        <li className={style.subImg}>
-                        {
-                            a.itemUrlList.map(f => {
-                                return(
-                                    <img width='46px' height='46px' src={f} alt={f}></img>
-                                )
-                            }
-                        
-                        )}
-                        </li>
-                       
-                    )
-                })
-            }
+      <div>
+      {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
+        if(infoList.itemList != null){
+        return(
+        infoList.itemList.map(itemList=>{           
+          return(
+            <li>
+              <img src={itemList.itemUrlList[0]} alt={itemList.itemUrlList[0]}></img>
+              <img src={itemList.itemUrlList[1]} alt={itemList.itemUrlList[1]}></img>
+              <img src={itemList.itemUrlList[2]} alt={itemList.itemUrlList[2]}></img>
+              <span>{itemList.winRate}</span>
+              <span>{itemList.allCount}</span>
             </li>
-            <div className={style.subImg}>
-                {s.winRate}
-            </div>
-            <div className={style.subImg}>
-                {s.allCount}
-            </div>
-        </div>
-    )
-})
+          )            
+        }
+        ))       
+      }
+      return(
+        <li></li>
+      ) 
+      })}
+    </div>
     )
 }
 
 const setSpellInfo = () => {
     return(
       <div>
-        {championDetailListResult.spellList && championDetailListResult.spellList.map(spellList => {
+        {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
           return(
-            <li>
-              <img src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
-              <img src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
-            </li>
-          )
+          infoList.spellList.map(spellList=>{           
+            return(
+              <li>
+                <img src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
+                <img src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
+                <span>{spellList.winRate}</span>
+                <span>{spellList.allCount}</span>
+              </li>
+            )            
+          }
+          ))        
         })}
       </div>
     )
@@ -230,14 +232,18 @@ const setSpellInfo = () => {
             <div className={style.mainChampion}>
                 {setMainChampion}
             </div>
-            <div className={style.subItem}>
-                {setperkInfo()}
-            </div>
-            <div className={style.subItem}>
-                {setItemInfo()}
-            </div>
-            <div className={style.subItem}>
-                {setSpellInfo()}
+            <div className={style.main}>
+              <div className={style.subItem}>
+                  {setperkInfo()}
+              </div>
+              <div>
+                <div className={style.subItem}>
+                    {setSpellInfo()}
+                </div>
+                <div className={style.subItem}>
+                    {setItemInfo()}
+                </div>
+              </div>
             </div>
         </div>
     );
