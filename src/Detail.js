@@ -6,6 +6,7 @@ import env from './static/env.json'
 function Detatil() {
 
     const {state} = useLocation();
+    const [selectedPerkChampionId, setSelectedPerkChampionId] = useState(2);
     const [championListResult , setChampionListResult] = useState([
         {
           "championInfoResponseList": [
@@ -131,6 +132,7 @@ function Detatil() {
                   }}
           )
           setChampionDetailListResult( apiData.data);
+          setSelectedPerkChampionId(apiData.data.infoList[0].championId);
           console.log(apiData.data);
           
           }        
@@ -147,6 +149,104 @@ function Detatil() {
                 </li>
             )
         })
+
+    const setPerkDetailInfo = (now) => {
+      return(
+          championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
+            if(now === infoList.championId){
+            return(
+              <div className={style.main}>
+                <div>
+                  <li>
+                    <img src={infoList.perkList[0].mainPerkUrl} alt={infoList.perkList[0].mainPerkUrl}></img>
+                  </li>
+                  <li>
+                    {infoList.perkList[0].keyPerkUrlList.map(keyPerkUrlList => {
+                      return(
+                        <img src={keyPerkUrlList} alt={keyPerkUrlList} />
+                      )
+                    })}
+                  </li>
+                  <li>
+                    {infoList.perkList[0].main1UrlList.map(main1UrlList => {
+                      return(
+                        <img src={main1UrlList} alt={main1UrlList} />
+                      )
+                    })}
+                  </li>
+                  <li>
+                    {infoList.perkList[0].main2UrlList.map(main2UrlList => {
+                      return(
+                        <img src={main2UrlList} alt={main2UrlList} />
+                      )
+                    })}
+                  </li>
+                  <li>
+                    {infoList.perkList[0].main3UrlList.map(main3UrlList => {
+                      return(
+                        <img src={main3UrlList} alt={main3UrlList} />
+                      )
+                    })}
+                  </li>
+                </div>
+                <div>
+                <li>
+                    <img src={infoList.perkList[0].subPerkUrl} alt={infoList.perkList[0].subPerkUrl}></img>
+                  </li>
+                  <li>
+                    {infoList.perkList[0].sub1UrlList.map(sub1UrlList => {
+                      return(
+                        <img src={sub1UrlList} alt={sub1UrlList} />
+                      )
+                    })}
+                  </li>
+                  <li>
+                    {infoList.perkList[0].sub2UrlList.map(sub2UrlList => {
+                      return(
+                        <img src={sub2UrlList} alt={sub2UrlList} />
+                      )
+                    })}
+                  </li>
+                  <li>
+                    {infoList.perkList[0].sub3UrlList.map(sub3UrlList => {
+                      return(
+                        <img src={sub3UrlList} alt={sub3UrlList} />
+                      )
+                    })}
+                  </li>
+                  </div>
+                  <div>
+                  <li>
+                    {infoList.perkList[0].subsub1UrlList.map(subsub1UrlList => {
+                      return(
+                        <img src={subsub1UrlList} alt={subsub1UrlList} />
+                      )
+                    })}
+                  </li>
+                  <li>
+                    {infoList.perkList[0].subsub2UrlList.map(subsub2UrlList => {
+                      return(
+                        <img src={subsub2UrlList} alt={subsub2UrlList} />
+                      )
+                    })}
+                  </li>
+                  <li>
+                    {infoList.perkList[0].subsub3UrlList.map(subsub3UrlList => {
+                      return(
+                        <img src={subsub3UrlList} alt={subsub3UrlList} />
+                      )
+                    })}
+                  </li>
+                  </div>
+              </div>
+            )}
+            return(
+              <div></div>
+            )
+          })
+      )
+    }
+    
     
     const setperkInfo = () => {
         return(
@@ -154,7 +254,7 @@ function Detatil() {
             <div>
               {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
                 return(
-                  <ul>
+                  <ul onClick={() => setSelectedPerkChampionId(infoList.championId)}>
                     <li>
                       <img src={infoList.championImgUrl} alt={infoList.championImgUrl}/>
                       <img src={infoList.championPositionUrl} alt={infoList.championPositionUrl}/>                      
@@ -175,56 +275,56 @@ function Detatil() {
           </div>
          </div>
         )
-}
+    }
 
-const setItemInfo = () => {
-    return(
-      <div>
-      {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
-        if(infoList.itemList != null){
+    const setItemInfo = () => {
         return(
-        infoList.itemList.map(itemList=>{           
-          return(
-            <li>
-              <img src={itemList.itemUrlList[0]} alt={itemList.itemUrlList[0]}></img>
-              <img src={itemList.itemUrlList[1]} alt={itemList.itemUrlList[1]}></img>
-              <img src={itemList.itemUrlList[2]} alt={itemList.itemUrlList[2]}></img>
-              <span>{itemList.winRate}</span>
-              <span>{itemList.allCount}</span>
-            </li>
-          )            
-        }
-        ))       
-      }
-      return(
-        <li></li>
-      ) 
-      })}
-    </div>
-    )
-}
-
-const setSpellInfo = () => {
-    return(
-      <div>
-        {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
-          return(
-          infoList.spellList.map(spellList=>{           
+          <div>
+          {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
+            if(infoList.itemList != null){
             return(
-              <li>
-                <img src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
-                <img src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
-                <span>{spellList.winRate}</span>
-                <span>{spellList.allCount}</span>
-              </li>
-            )            
+            infoList.itemList.map(itemList=>{           
+              return(
+                <li>
+                  <img src={itemList.itemUrlList[0]} alt={itemList.itemUrlList[0]}></img>
+                  <img src={itemList.itemUrlList[1]} alt={itemList.itemUrlList[1]}></img>
+                  <img src={itemList.itemUrlList[2]} alt={itemList.itemUrlList[2]}></img>
+                  <span>{itemList.winRate}</span>
+                  <span>{itemList.allCount}</span>
+                </li>
+              )            
+            }
+            ))       
           }
-          ))        
-        })}
-      </div>
-    )
-}
+          return(
+            <li></li>
+          ) 
+          })}
+        </div>
+        )
+    }
 
+    const setSpellInfo = () => {
+        return(
+          <div>
+            {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
+              return(
+              infoList.spellList.map(spellList=>{           
+                return(
+                  <li>
+                    <img src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
+                    <img src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
+                    <span>{spellList.winRate}</span>
+                    <span>{spellList.allCount}</span>
+                  </li>
+                )            
+              }
+              ))        
+            })}
+          </div>
+        )
+    }
+    
 
     
     return (
@@ -235,6 +335,7 @@ const setSpellInfo = () => {
             <div className={style.main}>
               <div className={style.subItem}>
                   {setperkInfo()}
+                  {setPerkDetailInfo(selectedPerkChampionId)}
               </div>
               <div>
                 <div className={style.subItem}>
