@@ -101,13 +101,13 @@ function App() {
             <td className={style.table}>{now++}</td>
             <td className={`${style.ChampionList} ${style.table}`}>{s.championInfoResponseList.map(c => {
             return(
-              <div onClick={() => goToDetail(s)}>
-              <img src={c.imgUrl} alt={c.imgUrl}></img>
-              <img src={c.positionUrl} alt = {c.positionUrl}></img>
+              <div  onClick={() => goToDetail(s)}>
+                <img src={c.imgUrl} alt={c.imgUrl}></img>
+                <img src={c.positionUrl} alt = {c.positionUrl}></img>
               </div>
             )
           })}</td>
-            <td className={style.table}>{s.winRate}</td>
+            <td className={style.table} >{s.winRate}</td>
             <td className={style.table}>{s.allCount}</td>
           </tr>
         )
@@ -188,8 +188,8 @@ function App() {
               <colgroup>
                 <col width="150"/>
                 <col width="*" />
-                <col width="200"/>
-                <col width="130"/>
+                <col width="*"/>
+                <col width="*"/>
               </colgroup>
               <thead>
                 <tr>
