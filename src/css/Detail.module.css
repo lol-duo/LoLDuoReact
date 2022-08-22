@@ -18,9 +18,21 @@
 
 .subItem{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .main{
     display: flex;
+}
+
+.perks{
+    width: 250px;
+    text-align: center;
+    list-style: none;
+}
+
+.subPerk{
+    padding: 5px;
+    height: 50px;
+    width: 50px;
 }

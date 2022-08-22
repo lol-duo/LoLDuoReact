@@ -131,10 +131,9 @@ function Detatil() {
               'Accept': 'application/json' 
                   }}
           )
+          console.log(apiData.data);
           setChampionDetailListResult( apiData.data);
           setSelectedPerkChampionId(apiData.data.infoList[0].championId);
-          console.log(apiData.data);
-          
           }        
         ,[state])
 
@@ -157,83 +156,83 @@ function Detatil() {
             return(
               <div className={style.main}>
                 <div>
-                  <li>
-                    <img src={infoList.perkList[0].mainPerkUrl} alt={infoList.perkList[0].mainPerkUrl}></img>
+                  <li className={style.perks}>
+                    <img className={style.subPerk} src={infoList.perkList[0].mainPerkUrl} alt={infoList.perkList[0].mainPerkUrl}></img>
                   </li>
-                  <li>
+                  <li className={style.perks}>
                     {infoList.perkList[0].keyPerkUrlList.map(keyPerkUrlList => {
                       return(
-                        <img src={keyPerkUrlList} alt={keyPerkUrlList} />
+                        <img className={style.subPerk} src={keyPerkUrlList} alt={keyPerkUrlList} />
                       )
                     })}
                   </li>
-                  <li>
+                  <li className={style.perks}>
                     {infoList.perkList[0].main1UrlList.map(main1UrlList => {
                       return(
-                        <img src={main1UrlList} alt={main1UrlList} />
+                        <img className={style.subPerk} src={main1UrlList} alt={main1UrlList} />
                       )
                     })}
                   </li>
-                  <li>
+                  <li className={style.perks}>
                     {infoList.perkList[0].main2UrlList.map(main2UrlList => {
                       return(
-                        <img src={main2UrlList} alt={main2UrlList} />
+                        <img className={style.subPerk} src={main2UrlList} alt={main2UrlList} />
                       )
                     })}
                   </li>
-                  <li>
+                  <li className={style.perks}>
                     {infoList.perkList[0].main3UrlList.map(main3UrlList => {
                       return(
-                        <img src={main3UrlList} alt={main3UrlList} />
+                        <img className={style.subPerk} src={main3UrlList} alt={main3UrlList} />
                       )
                     })}
                   </li>
                 </div>
                 <div>
-                <li>
-                    <img src={infoList.perkList[0].subPerkUrl} alt={infoList.perkList[0].subPerkUrl}></img>
+                <li className={style.perks}>
+                    <img className={style.subPerk} src={infoList.perkList[0].subPerkUrl} alt={infoList.perkList[0].subPerkUrl}></img>
                   </li>
-                  <li>
+                  <li className={style.perks}>
                     {infoList.perkList[0].sub1UrlList.map(sub1UrlList => {
                       return(
-                        <img src={sub1UrlList} alt={sub1UrlList} />
+                        <img className={style.subPerk} src={sub1UrlList} alt={sub1UrlList} />
                       )
                     })}
                   </li>
-                  <li>
+                  <li className={style.perks}>
                     {infoList.perkList[0].sub2UrlList.map(sub2UrlList => {
                       return(
-                        <img src={sub2UrlList} alt={sub2UrlList} />
+                        <img className={style.subPerk} src={sub2UrlList} alt={sub2UrlList} />
                       )
                     })}
                   </li>
-                  <li>
+                  <li className={style.perks}>
                     {infoList.perkList[0].sub3UrlList.map(sub3UrlList => {
                       return(
-                        <img src={sub3UrlList} alt={sub3UrlList} />
+                        <img className={style.subPerk} src={sub3UrlList} alt={sub3UrlList} />
                       )
                     })}
                   </li>
                   </div>
                   <div>
-                  <li>
+                  <li className={style.perks}>
                     {infoList.perkList[0].subsub1UrlList.map(subsub1UrlList => {
                       return(
-                        <img src={subsub1UrlList} alt={subsub1UrlList} />
+                        <img className={style.subPerk} src={subsub1UrlList} alt={subsub1UrlList} />
                       )
                     })}
                   </li>
-                  <li>
+                  <li className={style.perks}>
                     {infoList.perkList[0].subsub2UrlList.map(subsub2UrlList => {
                       return(
-                        <img src={subsub2UrlList} alt={subsub2UrlList} />
+                        <img className={style.subPerk} src={subsub2UrlList} alt={subsub2UrlList} />
                       )
                     })}
                   </li>
-                  <li>
+                  <li className={style.perks}>
                     {infoList.perkList[0].subsub3UrlList.map(subsub3UrlList => {
                       return(
-                        <img src={subsub3UrlList} alt={subsub3UrlList} />
+                        <img className={style.subPerk} src={subsub3UrlList} alt={subsub3UrlList} />
                       )
                     })}
                   </li>
@@ -255,17 +254,19 @@ function Detatil() {
               {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
                 return(
                   <ul onClick={() => setSelectedPerkChampionId(infoList.championId)}>
-                    <li>
+                    <li className={style.perks}>
                       <img src={infoList.championImgUrl} alt={infoList.championImgUrl}/>
                       <img src={infoList.championPositionUrl} alt={infoList.championPositionUrl}/>                      
+                    </li>                    
+                  
+                    <li className={style.perks}>
+                      <img className={style.subPerk} src={infoList.keyStoneListUrl[0]} alt={infoList.keyStoneListUrl[0]}/>
+                      <img className={style.subPerk} src={infoList.keyStoneListUrl[1]} alt={infoList.keyStoneListUrl[1]}/>
+                      <img className={style.subPerk} src={infoList.keyStoneListUrl[2]} alt={infoList.keyStoneListUrl[2]}/>
                     </li>
-                    <li>
-                      <img src={infoList.keyStoneListUrl[0]} alt={infoList.keyStoneListUrl[0]}/>
-                      <img src={infoList.keyStoneListUrl[1]} alt={infoList.keyStoneListUrl[1]}/>
-                      <img src={infoList.keyStoneListUrl[2]} alt={infoList.keyStoneListUrl[2]}/>
-                    </li>
-                    <li>
-                    <span>{infoList.perkList[0].winRate}</span>
+     
+                    <li className={style.perks}>
+                      <span>{infoList.perkList[0].winRate}</span>
                       <span>{infoList.perkList[0].allCount}</span>
                     </li>
                   </ul>
