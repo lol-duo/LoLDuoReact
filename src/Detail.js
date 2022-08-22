@@ -16,6 +16,7 @@ function Detatil() {
         "infoList": [
           {
             "championId": 267,
+            "championName": "나미",
             "championPosition": "UTILITY",
             "championPositionUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/line/UTILITY.png",
             "championImgUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/champion/Nami.png",
@@ -133,7 +134,7 @@ function Detatil() {
             return(
               <div className={style.border}>
                 <div className={style.nameSpace}>
-                  <span className={style.name} >{infoList.championId}의 추천 룬 세팅</span>
+                  <span className={style.name} >{infoList.championName}의 추천 룬 세팅</span>
                 </div>
               <div className={style.main}>
                 <div className={style.perkList}>
@@ -274,7 +275,7 @@ function Detatil() {
               return(
                 <div className={style.border}>
                   <div className={style.nameSpace}>
-                      <span className={style.name} >{infoList.championId}의 추천 아이템</span>
+                      <span className={style.name} >{infoList.championName}의 추천 아이템</span>
                   </div>
                   {infoList.itemList.map(itemList=>{           
                     return(
@@ -284,9 +285,9 @@ function Detatil() {
                           <img className={style.item} src={itemList.itemUrlList[1]} alt={itemList.itemUrlList[1]}></img>
                           <img className={style.item} src={itemList.itemUrlList[2]} alt={itemList.itemUrlList[2]}></img>
                         </div>
-                        <div className={style.rate}>
-                          <span>{itemList.winRate}</span>
+                        <div className={style.rate}>                          
                           <span>{itemList.allCount}</span>
+                          <span>{itemList.winRate}</span>
                         </div>
                       </li>
                     )})}
@@ -310,7 +311,7 @@ function Detatil() {
                 return(
                   <div className={style.border}>  
                     <div className={style.nameSpace}>
-                      <span className={style.name} >{infoList.championId}의 추천 스펠</span>
+                      <span className={style.name} >{infoList.championName}의 추천 스펠</span>
                     </div>
                     {infoList.spellList.map(spellList=>{           
                       return(
@@ -319,9 +320,9 @@ function Detatil() {
                             <img className={style.spell} src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
                             <img className={style.spell} src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
                           </div>
-                          <div className={style.rate}>
-                            <span>{spellList.winRate}</span>
+                          <div className={style.rate}>                            
                             <span>{spellList.allCount}</span>
+                            <span>{spellList.winRate}</span>
                           </div>
                         </li>
                       )            
