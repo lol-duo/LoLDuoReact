@@ -274,12 +274,16 @@ function Detatil() {
                   </div>
                   {infoList.itemList.map(itemList=>{           
                     return(
-                      <li className={style.selectList}>
-                        <img src={itemList.itemUrlList[0]} alt={itemList.itemUrlList[0]}></img>
-                        <img src={itemList.itemUrlList[1]} alt={itemList.itemUrlList[1]}></img>
-                        <img src={itemList.itemUrlList[2]} alt={itemList.itemUrlList[2]}></img>
-                        <span>{itemList.winRate}</span>
-                        <span>{itemList.allCount}</span>
+                      <li className={style.spellOrItemList}>
+                        <div className={style.noneRate}>
+                          <img className={style.item} src={itemList.itemUrlList[0]} alt={itemList.itemUrlList[0]}></img>
+                          <img className={style.item} src={itemList.itemUrlList[1]} alt={itemList.itemUrlList[1]}></img>
+                          <img className={style.item} src={itemList.itemUrlList[2]} alt={itemList.itemUrlList[2]}></img>
+                        </div>
+                        <div className={style.rate}>
+                          <span>{itemList.winRate}</span>
+                          <span>{itemList.allCount}</span>
+                        </div>
                       </li>
                     )})}
                     </div>
@@ -306,11 +310,15 @@ function Detatil() {
                     </div>
                     {infoList.spellList.map(spellList=>{           
                       return(
-                        <li className={style.selectList}>
-                          <img src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
-                          <img src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
-                          <span>{spellList.winRate}</span>
-                          <span>{spellList.allCount}</span>
+                        <li className={style.spellOrItemList}>
+                          <div className={style.noneRate}>
+                            <img className={style.spell} src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
+                            <img className={style.spell} src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
+                          </div>
+                          <div className={style.rate}>
+                            <span>{spellList.winRate}</span>
+                            <span>{spellList.allCount}</span>
+                          </div>
                         </li>
                       )            
                     })}
@@ -334,7 +342,7 @@ function Detatil() {
               <div>                
                   {setPerkDetailInfo(selectedPerkChampionId)}
               </div>
-              <div>
+              <div className={style.sub}>
                 <div>
                     {setSpellInfo(selectedPerkChampionId)}
                 </div>

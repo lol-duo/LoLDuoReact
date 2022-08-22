@@ -113,3 +113,34 @@
 .noneborder{
     border-right-width: 0ch;
 }
+
+.rate{
+    font-size: large;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+}
+
+.spell{
+    padding: 10px 5px 10px 10px;
+    border-radius: 20%;
+}
+
+.item{
+    padding: 10px 5px 10px 10px;
+    border-radius: 20%;
+}
+
+.spellOrItemList{
+    display: flex;
+    flex-direction: row;
+}
+.sub{
+    width: 400px;
+}
+
+.noneRate{
+    margin-right: auto;
+}
