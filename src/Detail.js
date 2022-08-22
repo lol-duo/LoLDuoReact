@@ -7,19 +7,6 @@ function Detatil() {
 
     const {state} = useLocation();
     const [selectedPerkChampionId, setSelectedPerkChampionId] = useState(2);
-    const [championListResult , setChampionListResult] = useState([
-        {
-          "championInfoResponseList": [
-            {
-              "championId" : 2,
-              "championName": "올라프",
-              "imgUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/champion/Olaf.png",
-              "position": "TOP",
-              "positionUrl": "https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/line/TOP.png"
-            }
-          ]
-        }
-      ]);
     const [championDetailListResult , setChampionDetailListResult] = useState([
       {
         "winRate": "54.55%",
@@ -114,8 +101,7 @@ function Detatil() {
       }
       ]);
    
-    const setChampionListResultByApi = useCallback( async () => {         
-          setChampionListResult(state.id);
+    const setChampionListResultByApi = useCallback( async () => {                   
           const apiData = await axios.post(
               env.Url + '/v2/championDetail',
               state.id.map(s => {
@@ -139,21 +125,16 @@ function Detatil() {
 
     useEffect(() => {setChampionListResultByApi()},[setChampionListResultByApi]);
 
-    const setMainChampion = 
-        championListResult.map(s => {
-            return(
-                <li className= {style.Champion}>
-                    <img src={s.imgUrl} alt={s.imgUrl}></img>
-                    <img src={s.positionUrl} alt={s.positionUrl}></img>
-                </li>
-            )
-        })
 
     const setPerkDetailInfo = (now) => {
       return(
           championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
             if(now === infoList.championId){
             return(
+              <div className={style.border}>
+                <div className={style.nameSpace}>
+                  <span className={style.name} >{infoList.championId}의 추천 룬 세팅</span>
+                </div>
               <div className={style.main}>
                 <div>
                   <li className={style.perks}>
@@ -238,6 +219,7 @@ function Detatil() {
                   </li>
                   </div>
               </div>
+              </div>
             )}
             return(
               <div></div>
@@ -248,79 +230,88 @@ function Detatil() {
     
     
     const setperkInfo = () => {
-        return(
-          <div>
-            <div>
+        return(          
+            <div className={style.mainChampion}>
               {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
                 return(
-                  <ul onClick={() => setSelectedPerkChampionId(infoList.championId)}>
-                    <li className={style.perks}>
-                      <img src={infoList.championImgUrl} alt={infoList.championImgUrl}/>
-                      <img src={infoList.championPositionUrl} alt={infoList.championPositionUrl}/>                      
-                    </li>                    
-                  
-                    <li className={style.perks}>
-                      <img className={style.subPerk} src={infoList.keyStoneListUrl[0]} alt={infoList.keyStoneListUrl[0]}/>
-                      <img className={style.subPerk} src={infoList.keyStoneListUrl[1]} alt={infoList.keyStoneListUrl[1]}/>
-                      <img className={style.subPerk} src={infoList.keyStoneListUrl[2]} alt={infoList.keyStoneListUrl[2]}/>
-                    </li>
-     
-                    <li className={style.perks}>
-                      <span>{infoList.perkList[0].winRate}</span>
-                      <span>{infoList.perkList[0].allCount}</span>
-                    </li>
-                  </ul>
+                  <div className={infoList.championId === selectedPerkChampionId ? style.selectedList : `${style.selectedList} ${style.gray}`} onClick={() => setSelectedPerkChampionId(infoList.championId)}>
+                    <ul className={style.selectList} >
+                      <li className={style.selected}>
+                        <img className={style.subChampion} src={infoList.championImgUrl} alt={infoList.championImgUrl}/>
+                        <img className={style.subChampion} src={infoList.championPositionUrl} alt={infoList.championPositionUrl}/>               
+                        <img className={style.subItem} src={infoList.keyItemUrl} alt={infoList.keyItemUrl} />       
+                      </li>                    
+                    
+                      <li className={style.selected}>
+                        <img className={style.subPerk} src={infoList.keyStoneListUrl[0]} alt={infoList.keyStoneListUrl[0]}/>
+                        <img className={style.subPerk} src={infoList.keyStoneListUrl[1]} alt={infoList.keyStoneListUrl[1]}/>
+                        <img className={style.subPerk} src={infoList.keyStoneListUrl[2]} alt={infoList.keyStoneListUrl[2]}/>
+                      </li>
+                      {/*
+                      <li className={style.perks}>
+                        <span>{infoList.perkList[0].winRate}</span>
+                        <span>{infoList.perkList[0].allCount}</span>
+                      </li>
+                      */}
+                    </ul>
+                  </div>
                 )
               })
               }    
-          </div>
-         </div>
+          </div>         
         )
     }
 
-    const setItemInfo = () => {
+    const setItemInfo = (now) => {
         return(
           <div>
           {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
-            if(infoList.itemList != null){
-            return(
-            infoList.itemList.map(itemList=>{           
+            if(infoList.itemList != null && now === infoList.championId){
               return(
-                <li>
-                  <img src={itemList.itemUrlList[0]} alt={itemList.itemUrlList[0]}></img>
-                  <img src={itemList.itemUrlList[1]} alt={itemList.itemUrlList[1]}></img>
-                  <img src={itemList.itemUrlList[2]} alt={itemList.itemUrlList[2]}></img>
-                  <span>{itemList.winRate}</span>
-                  <span>{itemList.allCount}</span>
-                </li>
-              )            
+              infoList.itemList.map(itemList=>{           
+                return(
+                  <li>
+                    <img src={itemList.itemUrlList[0]} alt={itemList.itemUrlList[0]}></img>
+                    <img src={itemList.itemUrlList[1]} alt={itemList.itemUrlList[1]}></img>
+                    <img src={itemList.itemUrlList[2]} alt={itemList.itemUrlList[2]}></img>
+                    <span>{itemList.winRate}</span>
+                    <span>{itemList.allCount}</span>
+                  </li>
+                )            
             }
             ))       
           }
+          else{
           return(
-            <li></li>
+            <></>
           ) 
+          }
           })}
         </div>
         )
     }
 
-    const setSpellInfo = () => {
+    const setSpellInfo = (now) => {
         return(
           <div>
             {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
-              return(
-              infoList.spellList.map(spellList=>{           
+               if(now === infoList.championId){
                 return(
-                  <li>
-                    <img src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
-                    <img src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
-                    <span>{spellList.winRate}</span>
-                    <span>{spellList.allCount}</span>
-                  </li>
-                )            
-              }
-              ))        
+                infoList.spellList.map(spellList=>{           
+                  return(
+                    <li>
+                      <img src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
+                      <img src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
+                      <span>{spellList.winRate}</span>
+                      <span>{spellList.allCount}</span>
+                    </li>
+                  )            
+              }              
+              ))} 
+             else {return(
+              <></>
+             )  
+             } 
             })}
           </div>
         )
@@ -330,20 +321,19 @@ function Detatil() {
     
     return (
         <div>
-            <div className={style.mainChampion}>
-                {setMainChampion}
+            <div>
+                {setperkInfo()}
             </div>
             <div className={style.main}>
-              <div className={style.subItem}>
-                  {setperkInfo()}
+              <div>                
                   {setPerkDetailInfo(selectedPerkChampionId)}
               </div>
               <div>
-                <div className={style.subItem}>
-                    {setSpellInfo()}
+                <div>
+                    {setSpellInfo(selectedPerkChampionId)}
                 </div>
-                <div className={style.subItem}>
-                    {setItemInfo()}
+                <div>
+                    {setItemInfo(selectedPerkChampionId)}
                 </div>
               </div>
             </div>
