@@ -27,6 +27,7 @@
     padding-left: 0px;
 }
 
+
 .subPerk{
     padding: 5px;
     height: 50px;
@@ -110,9 +111,15 @@
     align-items: center;
 }
 
-.noneborder{
-    border-right-width: 0ch;
+.lastPerkList{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: center;
 }
+
+
 
 .rate{
     font-size: large;
@@ -121,6 +128,13 @@
     justify-content: center;
     text-align: center;
     margin: 10px;
+}
+.perkRate{
+    font-size: large;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    text-align: center;
 }
 
 .spell{
@@ -143,4 +157,8 @@
 
 .noneRate{
     margin-right: auto;
+}
+
+.space{
+    padding: 0px 10px 0px 0px;
 }

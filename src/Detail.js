@@ -195,7 +195,7 @@ function Detatil() {
                     })}
                   </li>
                   </div>
-                  <div className={`${style.perkList} ${style.noneborder}`}>
+                  <div className={style.lastPerkList}>
                   <li className={style.perks}>
                     {infoList.perkList[0].subsub1UrlList.map(subsub1UrlList => {
                       return(
@@ -216,6 +216,10 @@ function Detatil() {
                         <img className={style.subPerk} src={subsub3UrlList} alt={subsub3UrlList} />
                       )
                     })}
+                    <div className={style.perkRate}>
+                      <span className={style.space}>{infoList.perkList[0].allCount} </span>
+                      <span>{infoList.perkList[0].winRate}</span>
+                    </div>
                   </li>
                   </div>
               </div>
