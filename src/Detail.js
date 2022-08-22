@@ -136,7 +136,7 @@ function Detatil() {
                   <span className={style.name} >{infoList.championId}의 추천 룬 세팅</span>
                 </div>
               <div className={style.main}>
-                <div>
+                <div className={style.perkList}>
                   <li className={style.perks}>
                     <img className={style.subPerk} src={infoList.perkList[0].mainPerkUrl} alt={infoList.perkList[0].mainPerkUrl}></img>
                   </li>
@@ -169,7 +169,7 @@ function Detatil() {
                     })}
                   </li>
                 </div>
-                <div>
+                <div className={style.perkList}>
                 <li className={style.perks}>
                     <img className={style.subPerk} src={infoList.perkList[0].subPerkUrl} alt={infoList.perkList[0].subPerkUrl}></img>
                   </li>
@@ -195,7 +195,7 @@ function Detatil() {
                     })}
                   </li>
                   </div>
-                  <div>
+                  <div className={`${style.perkList} ${style.noneborder}`}>
                   <li className={style.perks}>
                     {infoList.perkList[0].subsub1UrlList.map(subsub1UrlList => {
                       return(
@@ -229,7 +229,7 @@ function Detatil() {
     }
     
     
-    const setperkInfo = () => {
+    const setSelectInfo = () => {
         return(          
             <div className={style.mainChampion}>
               {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
@@ -264,56 +264,62 @@ function Detatil() {
 
     const setItemInfo = (now) => {
         return(
-          <div>
-          {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
+          
+          championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
             if(infoList.itemList != null && now === infoList.championId){
               return(
-              infoList.itemList.map(itemList=>{           
-                return(
-                  <li>
-                    <img src={itemList.itemUrlList[0]} alt={itemList.itemUrlList[0]}></img>
-                    <img src={itemList.itemUrlList[1]} alt={itemList.itemUrlList[1]}></img>
-                    <img src={itemList.itemUrlList[2]} alt={itemList.itemUrlList[2]}></img>
-                    <span>{itemList.winRate}</span>
-                    <span>{itemList.allCount}</span>
-                  </li>
-                )            
-            }
-            ))       
+                <div className={style.border}>
+                  <div className={style.nameSpace}>
+                      <span className={style.name} >{infoList.championId}의 추천 아이템</span>
+                  </div>
+                  {infoList.itemList.map(itemList=>{           
+                    return(
+                      <li className={style.selectList}>
+                        <img src={itemList.itemUrlList[0]} alt={itemList.itemUrlList[0]}></img>
+                        <img src={itemList.itemUrlList[1]} alt={itemList.itemUrlList[1]}></img>
+                        <img src={itemList.itemUrlList[2]} alt={itemList.itemUrlList[2]}></img>
+                        <span>{itemList.winRate}</span>
+                        <span>{itemList.allCount}</span>
+                      </li>
+                    )})}
+                    </div>
+            )       
           }
           else{
           return(
             <></>
           ) 
           }
-          })}
-        </div>
+          })
+        
         )
     }
 
     const setSpellInfo = (now) => {
-        return(
-          <div>
-            {championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
+        return(                    
+            championDetailListResult.infoList && championDetailListResult.infoList.map(infoList => {
                if(now === infoList.championId){
                 return(
-                infoList.spellList.map(spellList=>{           
-                  return(
-                    <li>
-                      <img src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
-                      <img src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
-                      <span>{spellList.winRate}</span>
-                      <span>{spellList.allCount}</span>
-                    </li>
-                  )            
-              }              
-              ))} 
+                  <div className={style.border}>  
+                    <div className={style.nameSpace}>
+                      <span className={style.name} >{infoList.championId}의 추천 스펠</span>
+                    </div>
+                    {infoList.spellList.map(spellList=>{           
+                      return(
+                        <li className={style.selectList}>
+                          <img src={spellList.spellUrlList[0]} alt={spellList.spellUrlList[0]}></img>
+                          <img src={spellList.spellUrlList[1]} alt={spellList.spellUrlList[1]}></img>
+                          <span>{spellList.winRate}</span>
+                          <span>{spellList.allCount}</span>
+                        </li>
+                      )            
+                    })}
+                    </div>
+              )} 
              else {return(
               <></>
-             )  
-             } 
-            })}
-          </div>
+             )} 
+            })          
         )
     }
     
@@ -322,7 +328,7 @@ function Detatil() {
     return (
         <div>
             <div>
-                {setperkInfo()}
+                {setSelectInfo()}
             </div>
             <div className={style.main}>
               <div>                
