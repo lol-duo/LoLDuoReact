@@ -167,10 +167,10 @@ function App() {
         <div className={style.Maincontent}>
           <div className={style.SubcontentChampionList}>
             <nav>
-              <button type="button" onClick={() => newUserSelected(1)}>솔로</button>
-              <button type="button" onClick={() => newUserSelected(2)}>듀오</button>
-              <button type="button" onClick={() => newUserSelected(3)}>트리오</button>
-              <button type="button" onClick={() => newUserSelected(5)}>전체</button>
+              <button className={style.btn} onClick={() => newUserSelected(1)}><img className={style.img} src='https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/icon/solo.png' alt='https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/icon/solo.png'/></button>
+              <button className={style.btn} onClick={() => newUserSelected(2)}><img className={style.img} src='https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/icon/double.png' alt='https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/icon/double.png'/></button>
+              <button className={style.btn} onClick={() => newUserSelected(3)}><img className={style.img} src='https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/icon/triple.png' alt='https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/icon/triple.png'/></button>
+              <button className={style.btn} onClick={() => newUserSelected(5)}><img className={style.img} src='https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/icon/penta.png' alt='https://lol-duo-bucket.s3.ap-northeast-2.amazonaws.com/icon/penta.png'/></button>
             </nav>
               <div className={style.ChampionList}>
                 {userSelectedSpace}           

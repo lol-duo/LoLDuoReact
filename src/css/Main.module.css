@@ -20,21 +20,17 @@
 }
 
 .btn {
-    line-height: 20px;
-    height: 40px;
-    color: white;
-    background-color: white;
-    border-width: 0px 0px 0px 0px;
-    vertical-align: middle;
-    background-repeat: no-repeat;
-    background-position: center center;
-    display: flex;
-    flex-basis: 14.2857%;
-    border-radius: 0px;
-    padding: 8px;
-    font-size: 0px;
-    background-size: 24px;
-    transition: background 0.2s ease-in-out
+    width: 80px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: rgb(147, 147, 147);
+    background-color: rgb(39, 39, 39);    
+}
+.img{
+    width: 70px;
+    height: 50px;
 }
 
 .btn:hover {
@@ -46,19 +42,35 @@
     margin: 5px 5px;
     display: flex;
     align-items: center;
-    overflow: hidden;
+  
     position: relative;
-    height: 40px;
-    width: 90px;
-    border-radius: 2px;
+    height: 50px;
+    width: 95px;
+    
     text-align: left;
-    border-width: 2px;
+    box-sizing: border-box;
     border-style: solid;
-    background: white;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: rgb(147, 147, 147);
+    background-color: rgb(39, 39, 39);    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(100%);
 }
 
 .Selected {
-    border-color: blue;
+    filter: grayscale(0%);
+    box-sizing: border-box;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: rgb(147, 147, 147);
+    background-color: rgb(39, 39, 39);    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .Headcontent{
     height: 200px;
