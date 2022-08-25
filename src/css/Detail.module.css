@@ -1,10 +1,10 @@
 .mainChampion {
     display: flex;
-    flex: auto;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .Champion{
-  
     position: relative;
     display: block;
 }
@@ -16,11 +16,149 @@
     margin: 20px;
 }
 
-.subItem{
+.main{
     display: flex;
-    flex-direction: column;
 }
 
-.img {
+.perks{
+    width: 250px;
+    text-align: center;
+    list-style: none;
+    padding-left: 0px;
+}
+
+
+.subPerk{
+    padding: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+.subChampion{
+    width: 60px;
+    height: 60px;
+}
+
+.subItem{
+    width: 60px;
+    height: 60px;
+    padding: 0px 0px 0px 10px;
+    border-radius: 70%;
+}
+
+.selectedList{
+    width: 270px;
+    height: 170px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: rgb(147, 147, 147);
+    background-color: rgb(39, 39, 39);    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.selectList{
+    list-style: none;
+    padding-left: 0px;
+}
+
+.selected{
+    display: flex;
+    flex-direction: row;
+}
+
+.gray{
     filter: grayscale(100%);
+    border-color: rgb(112, 112, 112);
+    background-color: rgba(39, 39, 39, 0.479);    
+}
+
+.border{
+    margin: 10px;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: rgb(147, 147, 147);
+    background-color: rgb(39, 39, 39);    
+}
+
+.name{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.nameSpace{ 
+    border-bottom-width: 2px;
+    border-bottom-color: rgb(147, 147, 147);
+    border-bottom-style: solid;
+    justify-content: center;
+}
+
+.perkList{
+    padding: 10px;
+    border-right-width: 2px;
+    border-right-color: rgb(147, 147, 147);
+    border-right-style: solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lastPerkList{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: center;
+}
+
+
+
+.rate{
+    font-size: large;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+}
+.perkRate{
+    font-size: large;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    text-align: center;
+}
+
+.spell{
+    padding: 10px 5px 10px 10px;
+    border-radius: 20%;
+}
+
+.item{
+    padding: 10px 5px 10px 10px;
+    border-radius: 20%;
+}
+
+.spellOrItemList{
+    display: flex;
+    flex-direction: row;
+}
+.sub{
+    width: 400px;
+}
+
+.noneRate{
+    margin-right: auto;
+}
+
+.space{
+    padding: 0px 10px 0px 0px;
 }
