@@ -3,6 +3,7 @@ import style from "./css/Detail.module.css";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import env from "./static/env.json";
+
 function Detatil() {
   const { state } = useLocation();
   const [selectedPerkChampionId, setSelectedPerkChampionId] = useState(2);
